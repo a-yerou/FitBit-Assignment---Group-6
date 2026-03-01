@@ -10,4 +10,4 @@ venv/
 Thumbs.db
 
 data/*.csv
-
+data/*.db

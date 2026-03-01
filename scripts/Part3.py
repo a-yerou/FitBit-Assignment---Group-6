@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import requests
 
-
 DB_PATH = "../data/fitbit_database.db"
+
 def inspect_table(table_name, DB_PATH):
     with sqlite3.connect(DB_PATH) as conn:
         cursor = conn.cursor()
@@ -15,7 +15,7 @@ def inspect_table(table_name, DB_PATH):
         rows = cursor.fetchall()
         cols = [d[0] for d in cursor.description]  # column names from the cursor
         df = pd.DataFrame(rows, columns=cols)
-        print(df)
+        print(df.columns, df["Fat"])
 
 
 #inspect_table("daily_activity", DB_PATH)
