@@ -227,7 +227,7 @@ def plot_hr_and_intensity(id, DB_PATH):
 
 
 
-def weather_vs_activity(API_KEY, DB_PATH):
+def weather_vs_activity(API_KEY):
     with sqlite3.connect(DB_PATH) as conn:
         cursor = conn.cursor()
         cursor.execute("SELECT MIN(ActivityDate) AS dmin, MAX(ActivityDate) AS dmax FROM daily_activity")
