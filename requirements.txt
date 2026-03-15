@@ -1,8 +1,9 @@
-numpy
-pandas
-matplotlib
-statsmodels
-scipy
-requests
-streamlit
+streamlit==1.36.0
 altair<5
+numpy<2
+pandas==2.2.2
+matplotlib==3.9.0
+statsmodels==0.14.2
+scipy==1.13.1
+requests==2.32.3
+pyarrow==14.0.2
