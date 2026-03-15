@@ -51,20 +51,20 @@ def load_everything(db_path):
 
 
 @st.cache_data(ttl=3600)
-def get_ids(df_person_day):
-    return sorted(df_person_day["Id"].dropna().astype("int64").unique().tolist())
+def get_ids(_df_person_day):
+    return sorted(_df_person_day["Id"].dropna().astype("int64").unique().tolist())
 
 
 @st.cache_data(ttl=3600)
-def get_date_range(df_person_day):
-    dmin = pd.to_datetime(df_person_day["day"]).min().date()
-    dmax = pd.to_datetime(df_person_day["day"]).max().date()
+def get_date_range(_df_person_day):
+    dmin = pd.to_datetime(_df_person_day["day"]).min().date()
+    dmax = pd.to_datetime(_df_person_day["day"]).max().date()
     return dmin, dmax
 
 
 @st.cache_data(ttl=3600)
-def get_overview_kpis(df_person_day):
-    df = df_person_day.copy()
+def get_overview_kpis(_df_person_day):
+    df = _df_person_day.copy()
     return {
         "n_users": int(df["Id"].nunique()),
         "date_min": str(pd.to_datetime(df["day"]).min().date()),
@@ -76,8 +76,8 @@ def get_overview_kpis(df_person_day):
 
 
 @st.cache_data(ttl=3600)
-def fit_sleep_models(df_person_day, min_days=10):
-    df = df_person_day.dropna(subset=["sleep_minutes"]).copy()
+def fit_sleep_models(_df_person_day, min_days=10):
+    df = _df_person_day.dropna(subset=["sleep_minutes"]).copy()
 
     counts = df.groupby("Id").size()
     keep_ids = counts[counts >= min_days].index
