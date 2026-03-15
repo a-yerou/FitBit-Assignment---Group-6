@@ -5,4 +5,4 @@ statsmodels
 scipy
 requests
 streamlit
-pyarrow==14.0.2
+altair<5
